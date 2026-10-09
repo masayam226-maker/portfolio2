@@ -1,0 +1,237 @@
+body {
+    margin: 0;
+    padding: 0;
+
+}
+.bodysection {
+    display: flex;
+    width: 100%;
+    opacity: 0;
+}
+
+.menusection {
+  flex: 1;
+}
+.center-wrapper {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 80vh;
+  margin-top: 20vh;
+  overflow: hidden; /* ←中央はスクロールさせない */
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+}
+.center-mask {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;        
+  height: 250px;       /* グラデーションの高さ */
+  pointer-events: none; /* クリックを邪魔しない */
+  z-index: 999;       /* コンテンツより上に置く */
+}
+/* 上側の白フェード */
+.center-mask.top{
+  top: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 1)0%,
+    rgba(255, 255, 255, 1)80%,
+    rgba(255, 255, 255, 0.1)88%,
+    rgba(255, 255, 255, 0)92%
+  );
+}
+
+
+.mainsection{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+  height: 100vh;
+  margin-top: 20vh;
+  scrollbar-width: none;
+  z-index: 1;
+}
+.mainsection::-webkit-scrollbar {
+  display: none;
+}
+.mainvisual {
+  position: relative;
+  margin-top: 0;
+  width: fit-content;
+  height: fit-content;
+}
+.lottie-animation {
+  z-index: -1;
+  transform: translate(0, 0);
+}
+.mask {
+  position: absolute;
+  transform: translate(47%, -210%);
+  width: 300px;
+  height: 100px;
+  background: #505050; /* 好きな色に変更 */
+  animation: maskUp 0.6s cubic-bezier(.77,0,.175,1) forwards;
+}
+.about-me {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-top: 80px;
+}
+.section-title {
+  font-size: 18px;
+  margin-left: 35px;
+  margin-bottom: 80px;
+  font-family:
+    "Yu Gothic", "游ゴシック",
+    sans-serif;
+  font-weight: 500;
+}
+.aboutme-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #363636;
+  letter-spacing: 0.08em;
+}
+.aboutme-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.text {
+  width: 88%;
+  letter-spacing: 0.07em;
+  line-height: 1.6;
+  font-size: 14px;
+}
+.creation {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-top: 120px;
+}
+.creation-cards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+.creation-card {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  height: 200px;
+  text-decoration: none;
+  border-top: 1px solid #cccccc;
+}
+.creation-fade {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  opacity: 0;
+  transform: translateY(20px);
+}
+.creation-image {
+  width: 50%;
+  height: 50%;
+  object-fit: cover;
+}
+/* マスク（薄い白 or 薄い黒） */
+.creation-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%; /* 左の外からスタート */
+  width: 100%;
+  height: 100%;
+  background: rgba(207, 207, 207, 0.15); /* Weっぽい薄いマスク */
+  transform: translateX(0);
+  transition: transform 0.6s cubic-bezier(.25,.1,.25,1);
+}
+.creation-card:hover::before {
+  transform: translateX(100%);
+}
+.creation-fade :nth-child(4) {
+  border-bottom: 1px solid #cccccc;
+}
+  .contact-fade1 {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+
+.contact-title {
+  font-size: 20px;
+  font-weight: 400;
+  margin-left: 35px;
+  margin-top: 80px;
+  margin-bottom: 40px;
+  color: #363636;
+}
+.contact-inner {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom:90px;
+}
+.mail-text{
+  margin-top: 40px;
+  margin-bottom: 20px;
+  display: block;
+  user-select: text;
+}
+.copy-btn {
+  width: 90px;
+  margin-left: 15px;
+  padding: 6px 12px;
+  letter-spacing: 0.07em;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  background: #ffffff;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: .2s;
+  z-index: 1;
+}
+
+.copy-btn:hover {
+  background: #afafaf;
+  color: #ffffff;
+}
+.lastsection {
+  flex: 1;
+  height: 100%;
+}
+.lastsection-menu {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  right: 80px;
+  top: 10%;
+  cursor: pointer;
+}
+.lastsection-content:hover {
+  color: #a7a7a7;
+}
+.lastsection-content {
+  letter-spacing: 0.05em;
+  font-size: 20px;
+  font-weight: 400;
+  color: #505050;
+}

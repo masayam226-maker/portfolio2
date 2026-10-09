@@ -1,0 +1,15 @@
+.reveal-wrapper {
+  overflow: hidden;
+  display: inline-block;
+}
+
+.reveal-line {
+  display: block;
+  transform: translateY(100%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 40px;
+  color: #505050;
+}
